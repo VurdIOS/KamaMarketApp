@@ -61,6 +61,7 @@ class AuthorizationViewController: UIViewController {
         button.setTitle("Войти", for: .normal)
         button.layer.cornerRadius = 22
         
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -93,6 +94,7 @@ class AuthorizationViewController: UIViewController {
         
         setupLogo()
         setupConstraints()
+        setupTargetsForButtons()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -155,6 +157,28 @@ class AuthorizationViewController: UIViewController {
         logoView.clipsToBounds = true
         
     }
+    func setupTargetsForButtons() {
+        loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func logInButtonPressed() {
+        print("1")
+        guard let login = loginTextField.text else {
+            showAlert(withTitle: "NO", andMessage: "NO!")
+            return
+        }
+        guard let password = passwordTextField.text else {
+            showAlert(withTitle: "NO", andMessage: "NO!")
+            print("2")
+            return
+        }
+        if viewModel.logInWith(name: login, password: password) {
+            print("3")
+            view.backgroundColor = .red
+        } else {
+            showAlert(withTitle: "no", andMessage: "123")
+        }
+    }
 }
 
 
@@ -168,6 +192,17 @@ extension UITextField {
         borderStyle = .none
         layer.addSublayer(bottomLine)
         bottomLine.masksToBounds = true
+    }
+}
+
+extension AuthorizationViewController {
+    private func showAlert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let gotItAction = UIAlertAction(title: "OK", style: .default) {_ in
+            self.dismiss(animated: true)
+        }
+        alert.addAction(gotItAction)
+        present(alert, animated: true)
     }
 }
 
