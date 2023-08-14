@@ -9,6 +9,10 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
     
+    
+    var fallingAlert: UIView!
+    
+    
     lazy var logoView: UIImageView = {
         let logo = UIImageView()
         let viewWidth = view.frame.width - 100
@@ -16,6 +20,7 @@ class AuthorizationViewController: UIViewController {
         logo.translatesAutoresizingMaskIntoConstraints = false
         return logo
     }()
+    
     var logoImage: UIImage!
     
     var loginTextField: UITextField = {
@@ -32,7 +37,6 @@ class AuthorizationViewController: UIViewController {
         
         tf.translatesAutoresizingMaskIntoConstraints = false
         
-//        setupToolBarFor(textField: firstTF)
         return tf
     }()
     
@@ -54,7 +58,7 @@ class AuthorizationViewController: UIViewController {
         return tf
     }()
     
-    var loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton()
         
         button.backgroundColor = .systemGray
@@ -63,6 +67,8 @@ class AuthorizationViewController: UIViewController {
         
         
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.isEnabled = true
         
         
         return button
@@ -92,6 +98,8 @@ class AuthorizationViewController: UIViewController {
         view.backgroundColor = .white
         viewModel = AuthorizationViewModel()
         
+        fallingAlert = FallingAlert(frame: CGRect(x: 0, y: 30, width: view.frame.width / 2, height: 60))
+        
         setupLogo()
         setupConstraints()
         setupTargetsForButtons()
@@ -102,12 +110,15 @@ class AuthorizationViewController: UIViewController {
         passwordTextField.addBottomBorder()
     }
     
+   
+    
     func setupConstraints() {
         view.addSubview(logoView)
         view.addSubview(loginTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         view.addSubview(registrationButton)
+    
         
         
         
@@ -151,6 +162,14 @@ class AuthorizationViewController: UIViewController {
             registrationButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    func showWrongLoginAlert() {
+       let alert = FallingAlert(frame: CGRect(x: 0, y: 50, width: view.frame.width,  height: 100 ))
+        
+        self.view.addSubview(alert)
+        alert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        alert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        print("@#@3")
+    }
     
     func setupLogo() {
         logoView.image = logoImage
@@ -163,20 +182,17 @@ class AuthorizationViewController: UIViewController {
     
     @objc func logInButtonPressed() {
         print("1")
-        guard let login = loginTextField.text else {
-            showAlert(withTitle: "NO", andMessage: "NO!")
-            return
-        }
-        guard let password = passwordTextField.text else {
-            showAlert(withTitle: "NO", andMessage: "NO!")
-            print("2")
-            return
-        }
+        
+        guard let login = loginTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
         if viewModel.logInWith(name: login, password: password) {
             print("3")
             view.backgroundColor = .red
         } else {
-            showAlert(withTitle: "no", andMessage: "123")
+            showWrongLoginAlert()
+            loginTextField.text = ""
+            passwordTextField.text = ""
         }
     }
 }
