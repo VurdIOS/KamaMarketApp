@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
 		3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */; };
 		3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */; };
 		3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A8482A796A6F0041EB19 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
 		3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewController.swift; sourceTree = "<group>"; };
 		3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingAlert.swift; sourceTree = "<group>"; };
 		3AD3A8452A796A6F0041EB19 /* KamaMarketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KamaMarketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,10 +43,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A2C85DE2A96827200AA088E /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		3A2C85E12A9682DA00AA088E /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */,
+			);
+			name = Registration;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		3AD3A83C2A796A6F0041EB19 = {
 			isa = PBXGroup;
 			children = (
 				3AD3A8472A796A6F0041EB19 /* KamaMarketApp */,
+				3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */,
 				3AD3A8462A796A6F0041EB19 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,12 +80,12 @@
 		3AD3A8472A796A6F0041EB19 /* KamaMarketApp */ = {
 			isa = PBXGroup;
 			children = (
-				3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */,
-				3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */,
-				3AD3A8612A796EC00041EB19 /* App */,
 				3AD3A85E2A796E740041EB19 /* Authorization */,
+				3A2C85E12A9682DA00AA088E /* Registration */,
+				3A2C85DE2A96827200AA088E /* MainScreen */,
 				3AD3A8602A796E9D0041EB19 /* Resources */,
 				3AD3A85F2A796E8E0041EB19 /* StoryBoards */,
+				3AD3A8612A796EC00041EB19 /* App */,
 			);
 			path = KamaMarketApp;
 			sourceTree = "<group>";
@@ -181,6 +201,7 @@
 				3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */,
 				3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */,
 				3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */,
+				3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

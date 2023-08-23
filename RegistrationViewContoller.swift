@@ -1,16 +1,19 @@
 //
-//  AuthorizationViewController.swift
+//  RegistrationViewContoller.swift
 //  KamaMarketApp
 //
-//  Created by Камаль Атавалиев on 01.08.2023.
+//  Created by Камаль Атавалиев on 23.08.2023.
 //
 
 import UIKit
 
-class AuthorizationViewController: UIViewController {
+class RegistrationViewContoller: UIViewController {
     
     
     var fallingAlert: UIView!
+    
+    var yourBackImage = UIImage(named: "backButton")
+    
     
     lazy var logoView: UIImageView = {
         let logo = UIImageView(image: UIImage(named: "Logo"))
@@ -42,7 +45,7 @@ class AuthorizationViewController: UIViewController {
         tf.textColor = .black
         tf.textAlignment = .left
         tf.attributedPlaceholder = NSAttributedString(
-            string: "Пароль",
+            string: "Почта",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         tf.isSecureTextEntry = true
         
@@ -50,8 +53,7 @@ class AuthorizationViewController: UIViewController {
         tf.autocorrectionType = .no // прячет строку автокоррекции текста в клавиатуре
         
         tf.translatesAutoresizingMaskIntoConstraints = false
-        
-//        setupToolBarFor(textField: firstTF)
+    
         return tf
     }()
     
@@ -71,26 +73,18 @@ class AuthorizationViewController: UIViewController {
         return button
     }()
     
-    var registrationButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Зарегистрироваться", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.configuration = .plain()
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        return button
-    }()
     
-    private var viewModel: AuthorizationViewModelProtocol!
+//    private var viewModel: AuthorizationViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        viewModel = AuthorizationViewModel()
+//        viewModel = AuthorizationViewModel()
         
+
+
+        
+        setupNavBar()
         setupConstraints()
         setupTargetsForButtons()
     }
@@ -100,21 +94,24 @@ class AuthorizationViewController: UIViewController {
         passwordTextField.addBottomBorder(color: .gray)
     }
     
-   
-    
+    private func setupNavBar() {
+        self.title = "Регистрация"
+        let backImage = UIImage(named: "backButton")?.withRenderingMode(.alwaysOriginal)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popnav))
+    }
+
+    @objc func popnav() {
+    self.navigationController?.popViewController(animated: true)
+}
     func setupConstraints() {
         view.addSubview(logoView)
         view.addSubview(loginTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
-        view.addSubview(registrationButton)
     
-        
-        
-        
         NSLayoutConstraint.activate([
             logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             logoView.widthAnchor.constraint(equalToConstant: 130),
             logoView.heightAnchor .constraint(equalToConstant: 113)
         ])
@@ -143,14 +140,6 @@ class AuthorizationViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 44)
         ])
         
-
-        NSLayoutConstraint.activate([
-            registrationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registrationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            registrationButton.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor),
-            registrationButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor),
-            registrationButton.heightAnchor.constraint(equalToConstant: 60)
-        ])
     }
     
     func showWrongLoginAlert() {
@@ -162,26 +151,14 @@ class AuthorizationViewController: UIViewController {
     func setupTargetsForButtons() {
         loginTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
-        loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
-        registrationButton.addTarget(self, action: #selector(registrationButtonPressed), for: .touchUpInside)
+//        loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
     }
     
-    @objc func registrationButtonPressed() {
-        let vc = RegistrationViewContoller()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+//    @objc func logInButtonPressed() {
+//        guard let login = loginTextField.text else { return }
+//        guard let password = passwordTextField.text else { return }
+//    }
     
-    @objc func logInButtonPressed() {
-        guard let login = loginTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        if viewModel.logInWith(name: login, password: password) {
-            let vc = SecondVCViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            enteredWrongPasswordOrName()
-        }
-    }
     @objc func textFieldValueFilled() {
         if loginTextField.text != "", passwordTextField.text != "" {
             loginButton.enable()
@@ -189,57 +166,19 @@ class AuthorizationViewController: UIViewController {
             loginButton.disable()
         }
     }
-    
-    private func enteredWrongPasswordOrName() {
-        showWrongLoginAlert()
-        loginTextField.text = ""
-        passwordTextField.text = ""
-        loginTextField.addBottomBorder(color: .red)
-        passwordTextField.addBottomBorder(color: .red)
-        loginTextField.attributedPlaceholder = NSAttributedString(
-            string: "Имя пользвателя",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-        passwordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Пароль",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-        loginButton.disable()
-    }
+//
+//    private func enteredWrongPasswordOrName() {
+//        showWrongLoginAlert()
+//        loginTextField.text = ""
+//        passwordTextField.text = ""
+//        loginTextField.addBottomBorder(color: .red)
+//        passwordTextField.addBottomBorder(color: .red)
+//        loginTextField.attributedPlaceholder = NSAttributedString(
+//            string: "Имя пользвателя",
+//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+//        passwordTextField.attributedPlaceholder = NSAttributedString(
+//            string: "Пароль",
+//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+//        loginButton.disable()
+//    }
 }
-
-
-
-extension UITextField {
-    func addBottomBorder(color: UIColor){
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 0.5)
-        bottomLine.backgroundColor = color.cgColor
-       
-        borderStyle = .none
-        layer.addSublayer(bottomLine)
-        bottomLine.masksToBounds = true
-    }
-}
-
-extension UIButton {
-    func disable() {
-        self.isEnabled = false
-        self.backgroundColor = .systemGray
-    }
-    
-    func enable() {
-        self.isEnabled = true
-        self.backgroundColor = .systemBlue
-    }
-}
-
-extension AuthorizationViewController {
-    private func showAlert(withTitle title: String, andMessage message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let gotItAction = UIAlertAction(title: "OK", style: .default) {_ in
-            self.dismiss(animated: true)
-        }
-        alert.addAction(gotItAction)
-        present(alert, animated: true)
-    }
-}
-
