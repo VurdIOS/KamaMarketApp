@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
+		3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */; };
 		3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */; };
 		3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */; };
 		3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A8482A796A6F0041EB19 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
+		3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewController.swift; sourceTree = "<group>"; };
 		3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewController.swift; sourceTree = "<group>"; };
 		3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingAlert.swift; sourceTree = "<group>"; };
 		3AD3A8452A796A6F0041EB19 /* KamaMarketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KamaMarketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */,
+				3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */,
 			);
 			name = Registration;
 			path = ..;
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */,
 				3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */,
 				3AD3A85D2A796E5F0041EB19 /* AuthorizationViewModel.swift in Sources */,
 				3AD3A84D2A796A6F0041EB19 /* AuthorizationViewController.swift in Sources */,

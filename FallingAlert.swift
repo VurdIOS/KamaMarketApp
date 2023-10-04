@@ -14,6 +14,7 @@ class FallingAlert: UIView {
     let label: UILabel = {
         let label = UILabel()
         label.text = " Неправильный логин или пароль"
+        label.textColor = .white
          
         label.translatesAutoresizingMaskIntoConstraints = false
          
