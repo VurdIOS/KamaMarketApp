@@ -49,7 +49,7 @@ class RegistrationViewContoller: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         tf.isSecureTextEntry = true
         
-        tf.keyboardType = .emailAddress
+//        tf.keyboardType = .emailAddress
         tf.autocorrectionType = .no // прячет строку автокоррекции текста в клавиатуре
         
         tf.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +61,7 @@ class RegistrationViewContoller: UIViewController {
         let button = UIButton()
         
         button.backgroundColor = .systemGray
-        button.setTitle("Войти", for: .normal)
+        button.setTitle("Далее", for: .normal)
         button.layer.cornerRadius = 22
         
         

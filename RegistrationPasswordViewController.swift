@@ -36,6 +36,30 @@ class RegistrationPasswordViewController: UIViewController {
         return label
     }()
     
+    let passwordTextField: UITextField = {
+       let tf = UITextField()
+        tf.borderStyle = .none
+        tf.textAlignment = .center
+        tf.defaultTextAttributes.updateValue(14, forKey: NSAttributedString.Key.kern)
+        tf.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        tf.isSecureTextEntry = true
+        
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    let passwordRepeatTextField: UITextField = {
+       let tf = UITextField()
+        tf.borderStyle = .none
+        tf.textAlignment = .center
+        tf.defaultTextAttributes.updateValue(14, forKey: NSAttributedString.Key.kern)
+        tf.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        tf.isSecureTextEntry = true
+        
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+
    
     
     
@@ -68,7 +92,8 @@ class RegistrationPasswordViewController: UIViewController {
 }
     
     @objc func showPassword() {
-        // MARK: - TO DO
+        passwordTextField.isSecureTextEntry.toggle()
+        passwordRepeatTextField.isSecureTextEntry.toggle()
 }
     
     func setupConstraints() {
@@ -76,6 +101,8 @@ class RegistrationPasswordViewController: UIViewController {
         view.addSubview(lockImageView)
         view.addSubview(titleLabel)
         view.addSubview(discriptionLabel)
+        view.addSubview(passwordTextField)
+        view.addSubview(passwordRepeatTextField)
         
         NSLayoutConstraint.activate([
             lockImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -93,6 +120,20 @@ class RegistrationPasswordViewController: UIViewController {
             discriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             discriptionLabel.widthAnchor.constraint(equalToConstant: view.frame.width - 30)
             
+        ])
+        
+        NSLayoutConstraint.activate([
+            passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: 28),
+            passwordTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 156),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 34)
+        ])
+        
+        NSLayoutConstraint.activate([
+            passwordRepeatTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            passwordRepeatTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10),
+            passwordRepeatTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 156),
+            passwordRepeatTextField.heightAnchor.constraint(equalToConstant: 34)
         ])
 
     }
