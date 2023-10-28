@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationPasswordViewController: UIViewController {
+class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate {
 
     lazy var lockImageView: UIImageView = {
         let logo = UIImageView(image: UIImage(named: "LockImage"))
@@ -70,12 +70,32 @@ class RegistrationPasswordViewController: UIViewController {
         view.backgroundColor = .white
 //        viewModel = AuthorizationViewModel()
         
+        passwordTextField.delegate = self
+        passwordRepeatTextField.delegate = self
+        
+        
 
 
         
         setupNavBar()
         setupConstraints()
         setupTargetsForButtons()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let maxLength = 8
+        let currentString = (textField.text ?? "") as NSString
+        let newString = currentString.replacingCharacters(in: range, with: string)
+        
+        return newString.count <= maxLength
     }
 
     
