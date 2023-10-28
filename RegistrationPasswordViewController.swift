@@ -73,10 +73,6 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
         passwordTextField.delegate = self
         passwordRepeatTextField.delegate = self
         
-        
-
-
-        
         setupNavBar()
         setupConstraints()
         setupTargetsForButtons()
@@ -158,19 +154,7 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
 
     }
     
-
     func setupTargetsForButtons() {
-
+        
     }
-    
-//    @objc func textFieldValueFilled() {
-//        if loginTextField.text != "", passwordTextField.text != "" {
-//            loginButton.enable()
-//        } else {
-//            loginButton.disable()
-//        }
-//    }
-//
-
-
 }

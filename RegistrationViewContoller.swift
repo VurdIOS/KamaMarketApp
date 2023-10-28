@@ -142,12 +142,12 @@ class RegistrationViewContoller: UIViewController {
         
     }
     
-    func showWrongLoginAlert() {
-        let alert = FallingAlert(frame: CGRect(x: 28, y: 56, width: view.frame.width - 56,  height: 60))
-        
-        self.view.addSubview(alert)
-    }
-    
+//    func showWrongLoginAlert() {
+//        let alert = FallingAlert(frame: CGRect(x: 28, y: 56, width: view.frame.width - 56,  height: 60))
+//
+//        self.view.addSubview(alert)
+//    }
+    // Попробовать сделать через делегат текстфилда
     func setupTargetsForButtons() {
         loginTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
