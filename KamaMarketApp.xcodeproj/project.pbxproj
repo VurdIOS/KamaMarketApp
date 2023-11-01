@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A23E02E2AF23DB300CC706B /* RegistrationPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E02D2AF23DB300CC706B /* RegistrationPasswordViewModel.swift */; };
+		3A23E0302AF23E0000CC706B /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */; };
+		3A23E0332AF240F500CC706B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0322AF240F500CC706B /* StorageManager.swift */; };
+		3A23E0362AF2421C00CC706B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0352AF2421C00CC706B /* User.swift */; };
 		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
 		3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */; };
 		3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */; };
@@ -20,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A23E02D2AF23DB300CC706B /* RegistrationPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewModel.swift; sourceTree = "<group>"; };
+		3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		3A23E0322AF240F500CC706B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		3A23E0352AF2421C00CC706B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
 		3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewController.swift; sourceTree = "<group>"; };
 		3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +53,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A23E02C2AF23D8100CC706B /* RegistrationPassword */ = {
+			isa = PBXGroup;
+			children = (
+				3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */,
+				3A23E02D2AF23DB300CC706B /* RegistrationPasswordViewModel.swift */,
+			);
+			path = RegistrationPassword;
+			sourceTree = "<group>";
+		};
+		3A23E0312AF240DA00CC706B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0322AF240F500CC706B /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3A23E0342AF2420600CC706B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0352AF2421C00CC706B /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3A2C85DE2A96827200AA088E /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */,
-				3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */,
+				3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */,
 			);
 			name = Registration;
 			path = ..;
@@ -85,7 +118,10 @@
 			children = (
 				3AD3A85E2A796E740041EB19 /* Authorization */,
 				3A2C85E12A9682DA00AA088E /* Registration */,
+				3A23E02C2AF23D8100CC706B /* RegistrationPassword */,
 				3A2C85DE2A96827200AA088E /* MainScreen */,
+				3A23E0312AF240DA00CC706B /* Services */,
+				3A23E0342AF2420600CC706B /* Model */,
 				3AD3A8602A796E9D0041EB19 /* Resources */,
 				3AD3A85F2A796E8E0041EB19 /* StoryBoards */,
 				3AD3A8612A796EC00041EB19 /* App */,
@@ -200,9 +236,13 @@
 			files = (
 				3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */,
 				3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */,
+				3A23E0332AF240F500CC706B /* StorageManager.swift in Sources */,
 				3AD3A85D2A796E5F0041EB19 /* AuthorizationViewModel.swift in Sources */,
 				3AD3A84D2A796A6F0041EB19 /* AuthorizationViewController.swift in Sources */,
+				3A23E02E2AF23DB300CC706B /* RegistrationPasswordViewModel.swift in Sources */,
+				3A23E0302AF23E0000CC706B /* RegistrationViewModel.swift in Sources */,
 				3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */,
+				3A23E0362AF2421C00CC706B /* User.swift in Sources */,
 				3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */,
 				3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */,
 				3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */,

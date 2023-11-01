@@ -8,6 +8,8 @@
 import UIKit
 
 class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate {
+    
+    var viewModel: RegistrationPasswordViewModelProtocol!
 
     lazy var lockImageView: UIImageView = {
         let logo = UIImageView(image: UIImage(named: "LockImage"))
@@ -38,10 +40,12 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     
     let passwordTextField: UITextField = {
        let tf = UITextField()
+        tf.autocapitalizationType = .none
         tf.borderStyle = .none
         tf.textAlignment = .center
         tf.defaultTextAttributes.updateValue(14, forKey: NSAttributedString.Key.kern)
         tf.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        tf.returnKeyType = .next
         tf.isSecureTextEntry = true
         
         tf.translatesAutoresizingMaskIntoConstraints = false
@@ -50,25 +54,25 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     
     let passwordRepeatTextField: UITextField = {
        let tf = UITextField()
+        tf.autocapitalizationType = .none
         tf.borderStyle = .none
         tf.textAlignment = .center
         tf.defaultTextAttributes.updateValue(14, forKey: NSAttributedString.Key.kern)
         tf.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        tf.returnKeyType = .done
         tf.isSecureTextEntry = true
         
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
-
-   
-    
-    
-//    private var viewModel: AuthorizationViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        viewModel = AuthorizationViewModel()
+
+        print(viewModel.userName)
+        print(viewModel.userEmail)
+
         
         passwordTextField.delegate = self
         passwordRepeatTextField.delegate = self
@@ -92,6 +96,16 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
         let newString = currentString.replacingCharacters(in: range, with: string)
         
         return newString.count <= maxLength
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == passwordTextField, textField.text != "" {
+            passwordRepeatTextField.becomeFirstResponder()
+        } else {
+            passwordRepeatTextField.resignFirstResponder()
+            confirmPassword()
+        }
+        return true
     }
 
     
@@ -156,5 +170,16 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     
     func setupTargetsForButtons() {
         
+    }
+    
+    func confirmPassword() {
+        if passwordTextField.text == passwordRepeatTextField.text {
+            print("Password Confirm")
+            viewModel.password = passwordTextField.text!
+        } else {
+            passwordTextField.textColor = .red
+            passwordRepeatTextField.textColor = .red
+            print("asdasd")
+        }
     }
 }

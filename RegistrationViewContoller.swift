@@ -9,6 +9,7 @@ import UIKit
 
 class RegistrationViewContoller: UIViewController {
     
+    var viewModel: RegistrationViewModelProtocol!
     
     var fallingAlert: UIView!
     
@@ -23,8 +24,9 @@ class RegistrationViewContoller: UIViewController {
         return logo
     }()
     
-    var loginTextField: UITextField = {
+    var nameTextField: UITextField = {
         let tf = UITextField()
+        tf.autocapitalizationType = .none
         tf.clearButtonMode = .always
         tf.textColor = .black
         tf.textAlignment = .left
@@ -40,8 +42,9 @@ class RegistrationViewContoller: UIViewController {
         return tf
     }()
     
-    var passwordTextField: UITextField = {
+    var emailTextField: UITextField = {
         let tf = UITextField()
+        tf.autocapitalizationType = .none
         tf.textColor = .black
         tf.textAlignment = .left
         tf.attributedPlaceholder = NSAttributedString(
@@ -79,7 +82,7 @@ class RegistrationViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        viewModel = AuthorizationViewModel()
+        viewModel = RegistrationViewModel()
         
 
 
@@ -90,8 +93,8 @@ class RegistrationViewContoller: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loginTextField.addBottomBorder(color: .gray)
-        passwordTextField.addBottomBorder(color: .gray)
+        nameTextField.addBottomBorder(color: .gray)
+        emailTextField.addBottomBorder(color: .gray)
     }
     
     private func setupNavBar() {
@@ -105,8 +108,8 @@ class RegistrationViewContoller: UIViewController {
 }
     func setupConstraints() {
         view.addSubview(logoView)
-        view.addSubview(loginTextField)
-        view.addSubview(passwordTextField)
+        view.addSubview(nameTextField)
+        view.addSubview(emailTextField)
         view.addSubview(loginButton)
     
         NSLayoutConstraint.activate([
@@ -117,26 +120,26 @@ class RegistrationViewContoller: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            loginTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
-            loginTextField.heightAnchor.constraint(equalToConstant: 35)
+            nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            nameTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            nameTextField.heightAnchor.constraint(equalToConstant: 35)
         ])
         
         NSLayoutConstraint.activate([
-            passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: 40),
-            passwordTextField.leadingAnchor.constraint(equalTo: loginTextField.leadingAnchor),
-            passwordTextField.trailingAnchor.constraint(equalTo: loginTextField.trailingAnchor),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 35)
+            emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 40),
+            emailTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
+            emailTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor),
+            emailTextField.heightAnchor.constraint(equalToConstant: 35)
         ])
         
         NSLayoutConstraint.activate([
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
-            loginButton.leadingAnchor.constraint(equalTo: loginTextField.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: loginTextField.trailingAnchor),
+            loginButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40),
+            loginButton.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
+            loginButton.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 44)
         ])
         
@@ -149,36 +152,22 @@ class RegistrationViewContoller: UIViewController {
 //    }
     // Попробовать сделать через делегат текстфилда
     func setupTargetsForButtons() {
-        loginTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
-//        loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
+        nameTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
+        loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
     }
     
-//    @objc func logInButtonPressed() {
-//        guard let login = loginTextField.text else { return }
-//        guard let password = passwordTextField.text else { return }
-//    }
+    @objc func logInButtonPressed() {
+        let vc = RegistrationPasswordViewController()
+        vc.viewModel = RegistrationPasswordViewModel(userName: nameTextField.text!, userEmail: emailTextField.text!)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @objc func textFieldValueFilled() {
-        if loginTextField.text != "", passwordTextField.text != "" {
+        if nameTextField.text != "", emailTextField.text != "" {
             loginButton.enable()
         } else {
             loginButton.disable()
         }
     }
-//
-//    private func enteredWrongPasswordOrName() {
-//        showWrongLoginAlert()
-//        loginTextField.text = ""
-//        passwordTextField.text = ""
-//        loginTextField.addBottomBorder(color: .red)
-//        passwordTextField.addBottomBorder(color: .red)
-//        loginTextField.attributedPlaceholder = NSAttributedString(
-//            string: "Имя пользвателя",
-//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//        passwordTextField.attributedPlaceholder = NSAttributedString(
-//            string: "Пароль",
-//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//        loginButton.disable()
-//    }
 }

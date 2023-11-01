@@ -22,6 +22,7 @@ class AuthorizationViewController: UIViewController {
     
     var loginTextField: UITextField = {
         let tf = UITextField()
+        tf.autocapitalizationType = .none
         tf.clearButtonMode = .always
         tf.textColor = .black
         tf.textAlignment = .left
@@ -39,6 +40,7 @@ class AuthorizationViewController: UIViewController {
     
     var passwordTextField: UITextField = {
         let tf = UITextField()
+        tf.autocapitalizationType = .none
         tf.textColor = .black
         tf.textAlignment = .left
         tf.attributedPlaceholder = NSAttributedString(
@@ -88,11 +90,19 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         view.backgroundColor = .white
         viewModel = AuthorizationViewModel()
+//        print(Array(UserDefaults.standard.dictionaryRepresentation()))
+        
+        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+            print("\(key) = \(value) \n")
+        }
         
         setupConstraints()
         setupTargetsForButtons()
+        setupKeyboardHiding()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -243,3 +253,31 @@ extension AuthorizationViewController {
     }
 }
 
+extension UIViewController {
+    func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector (keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc func keyboardWillShow() {
+        if view.frame.origin.y == 0 {
+            view.frame.origin.y = view.frame.origin.y - 100
+        }
+        
+    }
+    
+    @objc func keyboardWillHide() {
+        view.frame.origin.y = 0
+    }
+}

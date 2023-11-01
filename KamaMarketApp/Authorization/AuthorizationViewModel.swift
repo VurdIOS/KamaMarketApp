@@ -19,13 +19,14 @@ class AuthorizationViewModel: AuthorizationViewModelProtocol {
     
     
     func logInWith(name: String, password: String) -> Bool {
-        if name == "Kama", password == "33" {
-            return true
-        } else {
-            return false
+        let users = StorageManager.shared.fetchUsers()
+        for user in users {
+            print(user.name)
+            print(user.password)
+            if user.name == name, user.password == password {
+                return true
+            }
         }
-        
+        return false
     }
-    
-
 }
