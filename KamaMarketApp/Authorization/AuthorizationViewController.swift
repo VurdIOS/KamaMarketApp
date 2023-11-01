@@ -186,7 +186,7 @@ class AuthorizationViewController: UIViewController {
         guard let password = passwordTextField.text else { return }
         
         if viewModel.logInWith(name: login, password: password) {
-            let vc = SecondVCViewController()
+            let vc = MainTabBarView()
             navigationController?.pushViewController(vc, animated: true)
         } else {
             enteredWrongPasswordOrName()

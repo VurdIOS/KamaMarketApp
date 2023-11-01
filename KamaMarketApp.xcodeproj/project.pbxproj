@@ -11,9 +11,15 @@
 		3A23E0302AF23E0000CC706B /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */; };
 		3A23E0332AF240F500CC706B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0322AF240F500CC706B /* StorageManager.swift */; };
 		3A23E0362AF2421C00CC706B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0352AF2421C00CC706B /* User.swift */; };
+		3A23E03A2AF2C08D00CC706B /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0392AF2C08D00CC706B /* MainTabBarView.swift */; };
+		3A23E0412AF2C2B400CC706B /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0402AF2C2B400CC706B /* MainListView.swift */; };
+		3A23E0432AF2C2D100CC706B /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0422AF2C2D100CC706B /* WalletView.swift */; };
+		3A23E0452AF2C31700CC706B /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0442AF2C31700CC706B /* AddView.swift */; };
+		3A23E0472AF2C34500CC706B /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0462AF2C34500CC706B /* ChatsView.swift */; };
+		3A23E0492AF2C35600CC706B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0482AF2C35600CC706B /* ProfileView.swift */; };
+		3A23E04B2AF2CADE00CC706B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */; };
 		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
 		3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */; };
-		3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */; };
 		3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */; };
 		3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A8482A796A6F0041EB19 /* AppDelegate.swift */; };
 		3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A84A2A796A6F0041EB19 /* SceneDelegate.swift */; };
@@ -28,9 +34,15 @@
 		3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		3A23E0322AF240F500CC706B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		3A23E0352AF2421C00CC706B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A23E0392AF2C08D00CC706B /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		3A23E0402AF2C2B400CC706B /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		3A23E0422AF2C2D100CC706B /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		3A23E0442AF2C31700CC706B /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		3A23E0462AF2C34500CC706B /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
+		3A23E0482AF2C35600CC706B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
 		3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewController.swift; sourceTree = "<group>"; };
-		3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewController.swift; sourceTree = "<group>"; };
 		3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingAlert.swift; sourceTree = "<group>"; };
 		3AD3A8452A796A6F0041EB19 /* KamaMarketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KamaMarketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD3A8482A796A6F0041EB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,12 +90,52 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3A2C85DE2A96827200AA088E /* MainScreen */ = {
+		3A23E0382AF2C02600CC706B /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				3ACC5B4D2A8A1DDA00817EAC /* SecondVCViewController.swift */,
+				3A23E0392AF2C08D00CC706B /* MainTabBarView.swift */,
 			);
-			path = MainScreen;
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		3A23E03B2AF2C21D00CC706B /* MainList */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0402AF2C2B400CC706B /* MainListView.swift */,
+			);
+			path = MainList;
+			sourceTree = "<group>";
+		};
+		3A23E03C2AF2C23000CC706B /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0422AF2C2D100CC706B /* WalletView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		3A23E03D2AF2C23E00CC706B /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0442AF2C31700CC706B /* AddView.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		3A23E03E2AF2C24E00CC706B /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0462AF2C34500CC706B /* ChatsView.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		3A23E03F2AF2C25D00CC706B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3A23E0482AF2C35600CC706B /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		3A2C85E12A9682DA00AA088E /* Registration */ = {
@@ -101,6 +153,7 @@
 			children = (
 				3AD3A8472A796A6F0041EB19 /* KamaMarketApp */,
 				3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */,
+				3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */,
 				3AD3A8462A796A6F0041EB19 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,7 +172,12 @@
 				3AD3A85E2A796E740041EB19 /* Authorization */,
 				3A2C85E12A9682DA00AA088E /* Registration */,
 				3A23E02C2AF23D8100CC706B /* RegistrationPassword */,
-				3A2C85DE2A96827200AA088E /* MainScreen */,
+				3A23E0382AF2C02600CC706B /* MainTabBar */,
+				3A23E03B2AF2C21D00CC706B /* MainList */,
+				3A23E03C2AF2C23000CC706B /* Wallet */,
+				3A23E03D2AF2C23E00CC706B /* Add */,
+				3A23E03E2AF2C24E00CC706B /* Chats */,
+				3A23E03F2AF2C25D00CC706B /* Profile */,
 				3A23E0312AF240DA00CC706B /* Services */,
 				3A23E0342AF2420600CC706B /* Model */,
 				3AD3A8602A796E9D0041EB19 /* Resources */,
@@ -236,16 +294,22 @@
 			files = (
 				3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */,
 				3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */,
+				3A23E0452AF2C31700CC706B /* AddView.swift in Sources */,
 				3A23E0332AF240F500CC706B /* StorageManager.swift in Sources */,
+				3A23E0432AF2C2D100CC706B /* WalletView.swift in Sources */,
+				3A23E04B2AF2CADE00CC706B /* UIColorExtension.swift in Sources */,
 				3AD3A85D2A796E5F0041EB19 /* AuthorizationViewModel.swift in Sources */,
 				3AD3A84D2A796A6F0041EB19 /* AuthorizationViewController.swift in Sources */,
 				3A23E02E2AF23DB300CC706B /* RegistrationPasswordViewModel.swift in Sources */,
+				3A23E0472AF2C34500CC706B /* ChatsView.swift in Sources */,
+				3A23E0492AF2C35600CC706B /* ProfileView.swift in Sources */,
 				3A23E0302AF23E0000CC706B /* RegistrationViewModel.swift in Sources */,
 				3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */,
 				3A23E0362AF2421C00CC706B /* User.swift in Sources */,
 				3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */,
-				3ACC5B4E2A8A1DDA00817EAC /* SecondVCViewController.swift in Sources */,
+				3A23E03A2AF2C08D00CC706B /* MainTabBarView.swift in Sources */,
 				3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */,
+				3A23E0412AF2C2B400CC706B /* MainListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

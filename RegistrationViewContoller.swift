@@ -83,6 +83,7 @@ class RegistrationViewContoller: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         viewModel = RegistrationViewModel()
+        setupKeyboardHiding()
         
 
 
