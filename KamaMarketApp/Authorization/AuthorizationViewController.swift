@@ -183,7 +183,7 @@ class AuthorizationViewController: UIViewController {
     @objc func logInButtonPressed() {
         guard let login = loginTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        
+        //комментарий посмотри в модели
         if viewModel.logInWith(name: login, password: password) {
             let vc = MainTabBarView()
             navigationController?.pushViewController(vc, animated: true)

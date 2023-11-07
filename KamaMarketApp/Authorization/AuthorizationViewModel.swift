@@ -17,7 +17,8 @@ protocol AuthorizationViewModelProtocol {
 class AuthorizationViewModel: AuthorizationViewModelProtocol {
     var logoImage = "Logo"
     
-    
+    //TODO
+    //тут очень хочется сделать замыкание, чтобы при вызове функции она еще и возвращала айди или полностью массив пользователя
     func logInWith(name: String, password: String) -> Bool {
         let users = StorageManager.shared.fetchUsers()
         for user in users {
