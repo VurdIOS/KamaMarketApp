@@ -9,7 +9,6 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
     
-    
     var fallingAlert: UIView!
     
     lazy var logoView: UIImageView = {
