@@ -50,10 +50,7 @@ class RegistrationViewContoller: UIViewController {
         tf.attributedPlaceholder = NSAttributedString(
             string: "Почта",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        tf.isSecureTextEntry = true
-        
-//        tf.keyboardType = .emailAddress
-        tf.autocorrectionType = .no // прячет строку автокоррекции текста в клавиатуре
+        tf.autocorrectionType = .no
         
         tf.translatesAutoresizingMaskIntoConstraints = false
     
@@ -66,27 +63,18 @@ class RegistrationViewContoller: UIViewController {
         button.backgroundColor = .systemGray
         button.setTitle("Далее", for: .normal)
         button.layer.cornerRadius = 22
-        
-        
+    
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         button.isEnabled = false
-        
         
         return button
     }()
-    
-    
-//    private var viewModel: AuthorizationViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         viewModel = RegistrationViewModel()
         setupKeyboardHiding()
-        
-
-
         
         setupNavBar()
         setupConstraints()
@@ -146,11 +134,6 @@ class RegistrationViewContoller: UIViewController {
         
     }
     
-//    func showWrongLoginAlert() {
-//        let alert = FallingAlert(frame: CGRect(x: 28, y: 56, width: view.frame.width - 56,  height: 60))
-//
-//        self.view.addSubview(alert)
-//    }
     // Попробовать сделать через делегат текстфилда
     func setupTargetsForButtons() {
         nameTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)

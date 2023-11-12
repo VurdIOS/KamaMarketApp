@@ -19,14 +19,14 @@ class AuthorizationViewController: UIViewController {
         return logo
     }()
     
-    var loginTextField: UITextField = {
+    var emailTextField: UITextField = {
         let tf = UITextField()
         tf.autocapitalizationType = .none
         tf.clearButtonMode = .always
         tf.textColor = .black
         tf.textAlignment = .left
         tf.attributedPlaceholder = NSAttributedString(
-            string: "Имя пользвателя",
+            string: "Почта",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         tf.keyboardType = .emailAddress
@@ -105,7 +105,7 @@ class AuthorizationViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loginTextField.addBottomBorder(color: .gray)
+        emailTextField.addBottomBorder(color: .gray)
         passwordTextField.addBottomBorder(color: .gray)
     }
     
@@ -113,7 +113,7 @@ class AuthorizationViewController: UIViewController {
     
     func setupConstraints() {
         view.addSubview(logoView)
-        view.addSubview(loginTextField)
+        view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
         view.addSubview(registrationButton)
@@ -129,26 +129,26 @@ class AuthorizationViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            loginTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
-            loginTextField.heightAnchor.constraint(equalToConstant: 35)
+            emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            emailTextField.heightAnchor.constraint(equalToConstant: 35)
         ])
         
         NSLayoutConstraint.activate([
             passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: 40),
-            passwordTextField.leadingAnchor.constraint(equalTo: loginTextField.leadingAnchor),
-            passwordTextField.trailingAnchor.constraint(equalTo: loginTextField.trailingAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40),
+            passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 35)
         ])
         
         NSLayoutConstraint.activate([
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
-            loginButton.leadingAnchor.constraint(equalTo: loginTextField.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: loginTextField.trailingAnchor),
+            loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 44)
         ])
         
@@ -169,7 +169,7 @@ class AuthorizationViewController: UIViewController {
     }
     
     func setupTargetsForButtons() {
-        loginTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldValueFilled), for: .editingChanged)
         loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
         registrationButton.addTarget(self, action: #selector(registrationButtonPressed), for: .touchUpInside)
@@ -181,18 +181,26 @@ class AuthorizationViewController: UIViewController {
     }
     
     @objc func logInButtonPressed() {
-        guard let login = loginTextField.text else { return }
+        guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        //комментарий посмотри в модели
-        if viewModel.logInWith(name: login, password: password) {
-            let vc = MainTabBarView()
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            enteredWrongPasswordOrName()
+        
+        viewModel.userEmail = email
+        viewModel.password = password
+        
+        viewModel.singIn { [self] result in
+            switch result {
+            case.success(_):
+                let vc = MainTabBarView()
+                navigationController?.pushViewController(vc, animated: true)
+            case.failure(let error):
+                print(error)
+                enteredWrongPasswordOrName()
+            }
         }
     }
+    
     @objc func textFieldValueFilled() {
-        if loginTextField.text != "", passwordTextField.text != "" {
+        if emailTextField.text != "", passwordTextField.text != "" {
             loginButton.enable()
         } else {
             loginButton.disable()
@@ -201,11 +209,11 @@ class AuthorizationViewController: UIViewController {
     
     private func enteredWrongPasswordOrName() {
         showWrongLoginAlert()
-        loginTextField.text = ""
+        emailTextField.text = ""
         passwordTextField.text = ""
-        loginTextField.addBottomBorder(color: .red)
+        emailTextField.addBottomBorder(color: .red)
         passwordTextField.addBottomBorder(color: .red)
-        loginTextField.attributedPlaceholder = NSAttributedString(
+        emailTextField.attributedPlaceholder = NSAttributedString(
             string: "Имя пользвателя",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         passwordTextField.attributedPlaceholder = NSAttributedString(
@@ -214,8 +222,6 @@ class AuthorizationViewController: UIViewController {
         loginButton.disable()
     }
 }
-
-
 
 extension UITextField {
     func addBottomBorder(color: UIColor){

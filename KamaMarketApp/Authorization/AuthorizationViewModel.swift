@@ -8,26 +8,33 @@
 import Foundation
 
 protocol AuthorizationViewModelProtocol {
+    
+    var userEmail: String? { get set }
+    var password: String? { get set}
+    
     var logoImage: String { get }
     
-    func logInWith(name: String, password: String) -> Bool
-
+    func singIn(complition: @escaping(Result<Any, Error>) -> Void)
 }
 
 class AuthorizationViewModel: AuthorizationViewModelProtocol {
-    var logoImage = "Logo"
     
-    //TODO
-    //тут очень хочется сделать замыкание, чтобы при вызове функции она еще и возвращала айди или полностью массив пользователя
-    func logInWith(name: String, password: String) -> Bool {
-        let users = StorageManager.shared.fetchUsers()
-        for user in users {
-            print(user.name)
-            print(user.password)
-            if user.name == name, user.password == password {
-                return true
+    var userEmail: String?
+
+    var password: String?
+
+    var logoImage = "Logo"
+
+    func singIn(complition: @escaping(Result<Any, Error>) -> Void) {
+        guard let userEmail = userEmail else { return }
+        guard let password = password else { return }
+        FireBaseManager.shared.signIn(withEmail: userEmail, password: password) { Result in
+            switch Result {
+            case .success(_):
+                complition(.success("Good"))
+            case .failure(let error):
+                complition(.failure(error))
             }
         }
-        return false
     }
 }

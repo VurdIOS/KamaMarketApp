@@ -10,7 +10,7 @@ import UIKit
 class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate {
     
     var viewModel: RegistrationPasswordViewModelProtocol!
-
+    
     lazy var lockImageView: UIImageView = {
         let logo = UIImageView(image: UIImage(named: "LockImage"))
         let viewWidth = 80
@@ -20,7 +20,7 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     }()
     
     let titleLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Придумайте пароль"
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 19)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     }()
     
     let passwordTextField: UITextField = {
-       let tf = UITextField()
+        let tf = UITextField()
         tf.autocapitalizationType = .none
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -53,7 +53,7 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     }()
     
     let passwordRepeatTextField: UITextField = {
-       let tf = UITextField()
+        let tf = UITextField()
         tf.autocapitalizationType = .none
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -69,10 +69,10 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
+        
         print(viewModel.userName)
         print(viewModel.userEmail)
-
+        
         
         passwordTextField.delegate = self
         passwordRepeatTextField.delegate = self
@@ -107,7 +107,6 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
         }
         return true
     }
-
     
     private func setupNavBar() {
         self.title = "Регистрация"
@@ -116,15 +115,15 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popnav))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: eyeSwitcher, style: .plain, target: self, action: #selector(showPassword))
     }
-
+    
     @objc func popnav() {
-    self.navigationController?.popViewController(animated: true)
-}
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @objc func showPassword() {
         passwordTextField.isSecureTextEntry.toggle()
         passwordRepeatTextField.isSecureTextEntry.toggle()
-}
+    }
     
     func setupConstraints() {
         
@@ -165,7 +164,7 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
             passwordRepeatTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 156),
             passwordRepeatTextField.heightAnchor.constraint(equalToConstant: 34)
         ])
-
+        
     }
     
     func setupTargetsForButtons() {
@@ -174,8 +173,19 @@ class RegistrationPasswordViewController: UIViewController, UITextFieldDelegate 
     
     func confirmPassword() {
         if passwordTextField.text == passwordRepeatTextField.text {
+            viewModel.password = passwordTextField.text
             print("Password Confirm")
-            viewModel.password = passwordTextField.text!
+            viewModel.createNewUser { [self] result in
+                switch result {
+                case.success(_):
+                    print("success")
+                    let vc = MainTabBarView()
+                    navigationController?.pushViewController(vc, animated: true)
+                case.failure(let error):
+                    print(error)
+                    print("suka")
+                }
+            }
         } else {
             passwordTextField.textColor = .red
             passwordRepeatTextField.textColor = .red
