@@ -28,7 +28,7 @@ class AuthorizationViewModel: AuthorizationViewModelProtocol {
     func singIn(complition: @escaping(Result<Any, Error>) -> Void) {
         guard let userEmail = userEmail else { return }
         guard let password = password else { return }
-        FireBaseManager.shared.signIn(withEmail: userEmail, password: password) { Result in
+        FireBaseAuthManager.shared.signIn(withEmail: userEmail, password: password) { Result in
             switch Result {
             case .success(_):
                 complition(.success("Good"))

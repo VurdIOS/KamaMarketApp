@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:998464752921:ios:981304fc20224187dd0988</string>
+	<key>DATABASE_URL</key>
+	<string>https://kamamarketapp-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

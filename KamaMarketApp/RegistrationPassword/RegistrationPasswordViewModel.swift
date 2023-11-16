@@ -26,7 +26,7 @@ class RegistrationPasswordViewModel: RegistrationPasswordViewModelProtocol {
     
     func createNewUser(complition: @escaping(Result<Any, Error>) -> Void) {
         guard let password = password else { return }
-        FireBaseManager.shared.createUser(withEmail: userEmail, password: password) { Result in
+        FireBaseAuthManager.shared.createUser(withEmail: userEmail, password: password) { Result in
             switch Result {
             case .success(_):
                 complition(.success("Good"))
