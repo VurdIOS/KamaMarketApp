@@ -50,39 +50,39 @@ class FireBaseDataManager {
     private init() {}
     
     private lazy var databasePath: DatabaseReference? = {
-      // 1
-      guard let uid = Auth.auth().currentUser?.uid else {
-        return nil
-      }
-
-      // 2
-      let ref = Database.database()
-        .reference()
-        .child("users/\(uid)/likes")
-      return ref
+        // 1
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return nil
+        }
+        // 2
+        let ref = Database.database()
+            .reference()
+            .child("users/\(uid)/likes")
+        return ref
     }()
-
+    
     // 3
     private let encoder = JSONEncoder()
     
-    func likeTapped(staffID: String) {
+    func likeTapped(staffID: [String]) {
         // 1
         guard let databasePath = databasePath else {
-          return
+            return
         }
-
+        
         do {
-          // 4
-          let data = try encoder.encode(staffID)
-
-          // 5
-          let json = try JSONSerialization.jsonObject(with: data)
-
-          // 6
-          databasePath.childByAutoId()
-            .setValue(json)
+            // 4
+            let data = try encoder.encode(staffID)
+            
+            // 5
+            let json = try JSONSerialization.jsonObject(with: data)
+            
+            // 6
+            databasePath.childByAutoId()
+                .setValue(json)
         } catch {
-          print("an error occurred", error)
+            print("pidaraz", error)
         }
     }
 }
+

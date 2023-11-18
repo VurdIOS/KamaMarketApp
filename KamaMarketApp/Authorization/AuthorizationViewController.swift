@@ -91,9 +91,9 @@ class AuthorizationViewController: UIViewController {
         super.viewDidLoad()
         
         
+        
         view.backgroundColor = .white
         viewModel = AuthorizationViewModel()
-//        print(Array(UserDefaults.standard.dictionaryRepresentation()))
         
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             print("\(key) = \(value) \n")
