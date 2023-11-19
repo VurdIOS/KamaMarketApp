@@ -89,7 +89,7 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(UserAction.like.rawValue)
         
         
         view.backgroundColor = .white
