@@ -58,8 +58,10 @@ class MainListView: UIViewController {
     }
     
     @objc func firtsButtonTapped() {
-        FireBaseDataManager.shared.inCartTapped(staffID: inCartModel(text: "Box"))
-//        FireBaseDataManager.shared.inCartListen()
+        // Используя эти функции можно сразу на сервак отправить и заменить также значения по этому ключу
+        let user = FireBaseDataManager.shared.returee(something: UserInfo(firstName: "Kamal", secondName: "Atavaliev", nickName: "Kama", birthday: "07011996", phoneNumber: "+7912345123", email: "kamalios@mail.ru"))
+        FireBaseDataManager.shared.databaseUserInfoPath?.child("userInfo").setValue(user)
+
     }
     
     @objc func secondButtonTapped() {

@@ -145,6 +145,7 @@ class RegistrationViewContoller: UIViewController {
         let vc = RegistrationPasswordViewController()
         vc.viewModel = RegistrationPasswordViewModel(userName: nameTextField.text!, userEmail: emailTextField.text!)
         navigationController?.pushViewController(vc, animated: true)
+        FireBaseDataManager.shared.sendUserInfoToFireBase(user: UserInfo(firstName: nameTextField.text!))
     }
     
     @objc func textFieldValueFilled() {

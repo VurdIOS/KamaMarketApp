@@ -28,7 +28,7 @@ class FireBaseDataManager {
         // 2
         let ref = Database.database()
             .reference()
-            .child("users/\(uid)/likes")
+            .child("users/\(uid)likes")
         return ref
     }()
     
@@ -44,9 +44,59 @@ class FireBaseDataManager {
         return ref
     }()
     
+    lazy var databaseUserInfoPath: DatabaseReference? = {
+        // 1
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return nil
+        }
+        // 2
+        let ref = Database.database()
+            .reference()
+            .child("users/\(uid)")
+        return ref
+    }()
+    
     // 3
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
+    //Этой хуйней можно запкодипровать и отправить на сервер
+    func returee(something: UserInfo) -> Any {
+        var dfsdf: Any = ""
+        do {
+            // 4
+            let data = try encoder.encode(something)
+            
+            // 5
+            let json = try JSONSerialization.jsonObject(with: data)
+            return json
+
+        } catch {
+            print("PIDARAZ", error)
+        }
+        return dfsdf
+    }
+    
+    func sendUserInfoToFireBase(user: UserInfo) {
+        // 1
+        guard let databasePath = databaseUserInfoPath else {
+            return
+        }
+        
+        
+        do {
+            // 4
+            let data = try encoder.encode(user)
+            
+            // 5
+            let json = try JSONSerialization.jsonObject(with: data)
+            
+            // 6
+            databasePath.childByAutoId()
+                .setValue(json)
+        } catch {
+            print("PIDARAZ", error)
+        }
+    }
     
     func likeTapped(staffID: String) {
         // 1
