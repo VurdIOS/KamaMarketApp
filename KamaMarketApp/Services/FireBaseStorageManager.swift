@@ -44,12 +44,11 @@ class FireBaseDataManager {
         return ref
     }()
     
-    var inCart: [inCartModel] = []
     // 3
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
     
-    func likeTapped(staffID: [String]) {
+    func likeTapped(staffID: String) {
         // 1
         guard let databasePath = databaseLikePath else {
             return
@@ -70,17 +69,16 @@ class FireBaseDataManager {
         }
     }
     
-    func inCartTapped(staffID: String) {
+    func inCartTapped(staffID: inCartModel) {
         // 1
         guard let databasePath = databaseInCartPath else {
             return
         }
         
-        let staff = inCartModel(text: staffID)
         
         do {
             // 4
-            let data = try encoder.encode(staff)
+            let data = try encoder.encode(staffID)
             
             // 5
             let json = try JSONSerialization.jsonObject(with: data)
@@ -92,37 +90,35 @@ class FireBaseDataManager {
             print("PIDARAZ", error)
         }
     }
-
-    func inCartListen(complition: @escaping((inCartModel) -> Void)) {
-        // 1
+    
+    func inCartListen(complition: @escaping((Result<inCartModel, Error>) -> Void)) {
         guard let databasePath = databaseInCartPath else {
-          return
+            return
         }
-
+        
         // 2
         
         databasePath.observe(.childAdded) { [weak self] snapshot,_ in
-            print(snapshot.value)
-            guard
-              let self = self,
-              var json = snapshot.value as? [String: Any]
-            else {
-              return
-            }
 
+            guard
+                let self = self,
+                var json = snapshot.value as? [String: Any]
+            else {
+                return
+            }
             // 4
             json["id"] = snapshot.key
-
+            
             do {
-
-              // 5
-              let cartData = try JSONSerialization.data(withJSONObject: json)
-              // 6
+                
+                // 5
+                let cartData = try JSONSerialization.data(withJSONObject: json)
                 let cart = try self.decoder.decode(inCartModel.self, from: cartData)
-              // 7
-                complition(cart)
+                complition(.success(cart))
+                print(cart)
+            
             } catch {
-              print("1111111111111111111111111 an error occurred", error)
+                complition(.failure(error))
             }
         }
     }

@@ -21,6 +21,7 @@ class AuthorizationViewController: UIViewController {
     
     var emailTextField: UITextField = {
         let tf = UITextField()
+        tf.text = "kamalios@mail.ru"
         tf.autocapitalizationType = .none
         tf.clearButtonMode = .always
         tf.textColor = .black
@@ -39,6 +40,7 @@ class AuthorizationViewController: UIViewController {
     
     var passwordTextField: UITextField = {
         let tf = UITextField()
+        tf.text = "123456"
         tf.autocapitalizationType = .none
         tf.textColor = .black
         tf.textAlignment = .left
@@ -66,7 +68,7 @@ class AuthorizationViewController: UIViewController {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.isEnabled = false
+        button.isEnabled = true
         
         
         return button

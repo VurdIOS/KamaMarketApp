@@ -58,12 +58,12 @@ class MainListView: UIViewController {
     }
     
     @objc func firtsButtonTapped() {
-        FireBaseDataManager.shared.inCartTapped(staffID: "Box")
+        FireBaseDataManager.shared.inCartTapped(staffID: inCartModel(text: "Box"))
 //        FireBaseDataManager.shared.inCartListen()
     }
     
     @objc func secondButtonTapped() {
-        FireBaseDataManager.shared.inCartTapped(staffID: "Tshirt")
+        FireBaseDataManager.shared.inCartTapped(staffID: inCartModel(text: "Tshirt"))
     }
     
 
