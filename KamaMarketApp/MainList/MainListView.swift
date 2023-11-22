@@ -59,13 +59,21 @@ class MainListView: UIViewController {
     
     @objc func firtsButtonTapped() {
         // Используя эти функции можно сразу на сервак отправить и заменить также значения по этому ключу
-        let user = FireBaseDataManager.shared.returee(something: UserInfo(firstName: "Kamal", secondName: "Atavaliev", nickName: "Kama", birthday: "07011996", phoneNumber: "+7912345123", email: "kamalios@mail.ru"))
-        FireBaseDataManager.shared.databaseUserInfoPath?.child("userInfo").setValue(user)
+        FireBaseDataManager.shared.sendUserInfoToFireBase(user: UserInfo(firstName: "Tima", phoneNumber: "9999999999"))
 
     }
     
     @objc func secondButtonTapped() {
-        FireBaseDataManager.shared.inCartTapped(staffID: inCartModel(text: "Tshirt"))
+//        FireBaseDataManager.shared.inCartTapped(staffID: inCartModel(text: "Tshirt"))
+//        FireBaseDataManager.shared.userInfoListen { result in
+//            switch result {
+//            case .success(let user):
+//                print(user)
+//            case .failure(let error):
+//                print("blyaaaa error \(error)")
+//            }
+//        }
+        FireBaseDataManager.shared.inCartTapped(staffID: inCartModel(text: ["Xbox3sdfdsfdswerwr60", "PS10wsdfsdferwe1010"]))
     }
     
 

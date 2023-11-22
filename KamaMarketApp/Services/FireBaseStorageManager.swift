@@ -7,6 +7,7 @@
 enum UserAction: String {
     case like = "likes"
     case inCart = "inCart"
+    case userInfo = "userInfo"
 }
 
 import Foundation
@@ -28,7 +29,7 @@ class FireBaseDataManager {
         // 2
         let ref = Database.database()
             .reference()
-            .child("users/\(uid)likes")
+            .child("users/\(uid)")
         return ref
     }()
     
@@ -40,7 +41,7 @@ class FireBaseDataManager {
         // 2
         let ref = Database.database()
             .reference()
-            .child("users/\(uid)/inCart")
+            .child("users/\(uid)/")
         return ref
     }()
     
@@ -59,12 +60,12 @@ class FireBaseDataManager {
     // 3
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
-    //Этой хуйней можно запкодипровать и отправить на сервер
-    func returee(something: UserInfo) -> Any {
-        var dfsdf: Any = ""
+
+    
+    func convert(toJSON: Codable) -> Any? {
         do {
             // 4
-            let data = try encoder.encode(something)
+            let data = try encoder.encode(toJSON)
             
             // 5
             let json = try JSONSerialization.jsonObject(with: data)
@@ -73,82 +74,83 @@ class FireBaseDataManager {
         } catch {
             print("PIDARAZ", error)
         }
-        return dfsdf
+        return nil
     }
     
     func sendUserInfoToFireBase(user: UserInfo) {
-        // 1
-        guard let databasePath = databaseUserInfoPath else {
-            return
-        }
-        
-        
-        do {
-            // 4
-            let data = try encoder.encode(user)
-            
-            // 5
-            let json = try JSONSerialization.jsonObject(with: data)
-            
-            // 6
-            databasePath.childByAutoId()
-                .setValue(json)
-        } catch {
-            print("PIDARAZ", error)
-        }
+        let user = convert(toJSON: user)
+        databaseUserInfoPath?.child("userInfo").setValue(user)
     }
-    
+
+
     func likeTapped(staffID: String) {
-        // 1
-        guard let databasePath = databaseLikePath else {
-            return
-        }
-        
-        do {
-            // 4
-            let data = try encoder.encode(staffID)
-            
-            // 5
-            let json = try JSONSerialization.jsonObject(with: data)
-            
-            // 6
-            databasePath.childByAutoId()
-                .setValue(json)
-        } catch {
-            print("PIDARAZ", error)
-        }
+//Пока не реализовано, нужно будет запрашивать рефрешить список и снова отправлять
     }
-    
+    //Не получается пока реализовать запрос козины дополнить и отправить его назад
+    func getCartInfo() -> [String]{
+        var new: [String] = []
+        inCartListen { result in
+            switch result {
+            case .success(let model):
+                new = model.text
+            case.failure(let error):
+                print(error)
+            }
+        }
+        return new
+    }
+    //Не получается пока реализовать запрос козины дополнить и отправить его назад
     func inCartTapped(staffID: inCartModel) {
-        // 1
-        guard let databasePath = databaseInCartPath else {
-            return
-        }
+        let new = getCartInfo()
+        let newnew = new + staffID.text
         
-        
-        do {
-            // 4
-            let data = try encoder.encode(staffID)
-            
-            // 5
-            let json = try JSONSerialization.jsonObject(with: data)
-            
-            // 6
-            databasePath.childByAutoId()
-                .setValue(json)
-        } catch {
-            print("PIDARAZ", error)
-        }
+        let itemInCart = convert(toJSON: newnew)
+        databaseInCartPath?.child(UserAction.inCart.rawValue).setValue(itemInCart)
+ 
     }
     
-    func inCartListen(complition: @escaping((Result<inCartModel, Error>) -> Void)) {
-        guard let databasePath = databaseInCartPath else {
+    func userInfoListen(complition: @escaping((Result<UserInfo, Error>) -> Void)) {
+        guard let databasePath = databaseUserInfoPath?.child(UserAction.userInfo.rawValue) else {
             return
         }
         
         // 2
         
-        databasePath.observe(.childAdded) { [weak self] snapshot,_ in
+        databasePath.observe(.value) { [weak self] snapshot,_ in
+
+            guard
+                let self = self,
+                var json = snapshot.value as? [String: Any]
+            else {
+                return
+            }
+            // 4
+            json["id"] = snapshot.key
+            
+            do {
+                
+                // 5
+                let userData = try JSONSerialization.data(withJSONObject: json)
+                let user = try self.decoder.decode(UserInfo.self, from: userData)
+                complition(.success(user))
+                print(user)
+            
+            } catch {
+                complition(.failure(error))
+            }
+        }
+    }
+
+    
+    
+    func inCartListen(complition: @escaping((Result<inCartModel, Error>) -> Void)) {
+        guard let databasePath = databaseInCartPath?.child(UserAction.inCart.rawValue) else {
+            return
+        }
+        
+        // 2
+        
+        databasePath.observe(.value) { [weak self] snapshot,_ in
 
             guard
                 let self = self,

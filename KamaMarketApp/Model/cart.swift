@@ -8,5 +8,5 @@
 import Foundation
 struct inCartModel: Identifiable, Codable {
   var id: String?
-  var text: String
+  var text: [String]
 }

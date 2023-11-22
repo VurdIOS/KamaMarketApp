@@ -35,16 +35,27 @@ class ChatsView: UIViewController {
         cartLabels.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         cartLabels.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         cartFetch()
+//        fetchUser()
         
         }
+    
+//    func fetchUser() {
+//        FireBaseDataManager.shared.userInfoListen { result in
+//            switch result {
+//            case .success(let user):
+//                self.cartLabels.text = user.firstName
+//            case .failure(let error):
+//                print("blyaaaa error \(error)")
+//            }
+//        }
+//    }
         
     func cartFetch() {
         FireBaseDataManager.shared.inCartListen { result in
             switch result {
             case .success(let model):
-                self.incartstring = model.text
-                print(self.incartstring)
-               
+                self.cartLabels.text = model.text[1]
+
             case .failure(let error):
                 print("asdasdas \(error.localizedDescription)")
             }
