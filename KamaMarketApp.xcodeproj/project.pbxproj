@@ -21,6 +21,8 @@
 		3A23E04B2AF2CADE00CC706B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */; };
 		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
 		3A3BE7E92B068F6100C60EAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BE7E82B068F6100C60EAA /* GoogleService-Info.plist */; };
+		3A68185F2B13528F00D440BC /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A68185E2B13528F00D440BC /* ProfileTableView.swift */; };
+		3A6818612B13552D00D440BC /* ProfileCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6818602B13552D00D440BC /* ProfileCellModel.swift */; };
 		3A85E1F52B0A2782000F2CA2 /* FireBaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85E1F42B0A2782000F2CA2 /* FireBaseStorageManager.swift */; };
 		3A85E1F82B0A27FB000F2CA2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85E1F72B0A27FB000F2CA2 /* FirebaseAnalytics */; };
 		3A85E1FA2B0A27FB000F2CA2 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85E1F92B0A27FB000F2CA2 /* FirebaseAnalyticsSwift */; };
@@ -39,6 +41,7 @@
 		3A85E2142B0A27FB000F2CA2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A85E2132B0A27FB000F2CA2 /* FirebaseStorage */; };
 		3A85E2162B0A3FC3000F2CA2 /* cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85E2152B0A3FC3000F2CA2 /* cart.swift */; };
 		3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */; };
+		3AC35E182B1242AC00868A8C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC35E172B1242AC00868A8C /* ProfileViewModel.swift */; };
 		3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */; };
 		3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A8482A796A6F0041EB19 /* AppDelegate.swift */; };
 		3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A84A2A796A6F0041EB19 /* SceneDelegate.swift */; };
@@ -63,9 +66,12 @@
 		3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
 		3A3BE7E82B068F6100C60EAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A68185E2B13528F00D440BC /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
+		3A6818602B13552D00D440BC /* ProfileCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellModel.swift; sourceTree = "<group>"; };
 		3A85E1F42B0A2782000F2CA2 /* FireBaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseStorageManager.swift; sourceTree = "<group>"; };
 		3A85E2152B0A3FC3000F2CA2 /* cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cart.swift; sourceTree = "<group>"; };
 		3A906A922ACDDC3000D42244 /* RegistrationPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewController.swift; sourceTree = "<group>"; };
+		3AC35E172B1242AC00868A8C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3ACC5B4F2A8A260E00817EAC /* FallingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingAlert.swift; sourceTree = "<group>"; };
 		3AD3A8452A796A6F0041EB19 /* KamaMarketApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KamaMarketApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD3A8482A796A6F0041EB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 			children = (
 				3A23E0352AF2421C00CC706B /* User.swift */,
 				3A85E2152B0A3FC3000F2CA2 /* cart.swift */,
+				3A6818602B13552D00D440BC /* ProfileCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				3A23E0482AF2C35600CC706B /* ProfileView.swift */,
+				3AC35E172B1242AC00868A8C /* ProfileViewModel.swift */,
+				3A68185E2B13528F00D440BC /* ProfileTableView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -364,7 +373,9 @@
 				3A85E2162B0A3FC3000F2CA2 /* cart.swift in Sources */,
 				3AD3A85D2A796E5F0041EB19 /* AuthorizationViewModel.swift in Sources */,
 				3AD3A84D2A796A6F0041EB19 /* AuthorizationViewController.swift in Sources */,
+				3A68185F2B13528F00D440BC /* ProfileTableView.swift in Sources */,
 				3A23E02E2AF23DB300CC706B /* RegistrationPasswordViewModel.swift in Sources */,
+				3A6818612B13552D00D440BC /* ProfileCellModel.swift in Sources */,
 				3A23E0472AF2C34500CC706B /* ChatsView.swift in Sources */,
 				3A23E0492AF2C35600CC706B /* ProfileView.swift in Sources */,
 				3A0733672B00FB2900DD21E6 /* FireBaseAuthManager.swift in Sources */,
@@ -373,6 +384,7 @@
 				3A23E0362AF2421C00CC706B /* User.swift in Sources */,
 				3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */,
 				3A85E1F52B0A2782000F2CA2 /* FireBaseStorageManager.swift in Sources */,
+				3AC35E182B1242AC00868A8C /* ProfileViewModel.swift in Sources */,
 				3A23E03A2AF2C08D00CC706B /* MainTabBarView.swift in Sources */,
 				3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */,
 				3A23E0412AF2C2B400CC706B /* MainListView.swift in Sources */,

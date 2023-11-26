@@ -13,8 +13,7 @@ class AuthorizationViewController: UIViewController {
     
     lazy var logoView: UIImageView = {
         let logo = UIImageView(image: UIImage(named: "Logo"))
-        let viewWidth = view.frame.width - 100
-        let viewHeight = viewWidth * 0.127
+
         logo.translatesAutoresizingMaskIntoConstraints = false
         return logo
     }()
@@ -92,14 +91,8 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserAction.like.rawValue)
-        
-        
         view.backgroundColor = .white
         viewModel = AuthorizationViewModel()
-        
-        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
-        }
         
         setupConstraints()
         setupTargetsForButtons()
