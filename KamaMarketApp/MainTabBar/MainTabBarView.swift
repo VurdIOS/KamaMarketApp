@@ -8,7 +8,7 @@
 import UIKit
 class MainTabBarView: UITabBarController {
     
-    lazy var navCon = UINavigationController(rootViewController: generateVC(viewConroller: ProfileView(), title: "Профиль", image: UIImage(named: "TBUser")))
+//    lazy var navCon = UINavigationController(rootViewController: generateVC(viewConroller: ProfileView(), title: "Профиль", image: UIImage(named: "TBUser")))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,9 @@ class MainTabBarView: UITabBarController {
             generateVC(viewConroller: ChatsView(),
                        title: "Чаты",
                        image: UIImage(named: "TBChat")),
-            navCon
+            generateVC(viewConroller: ProfileView(),
+                       title: "Профиль",
+                       image: UIImage(named: "TBUser"))
             
             
         ]

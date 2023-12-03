@@ -71,8 +71,7 @@ class ProfileView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray5
-        setupNavBar()
-        title = "asd"
+        
         view.addSubview(profileIcon)
         view.addSubview(nameLabel)
         view.addSubview(tableView)
@@ -89,8 +88,6 @@ class ProfileView: UIViewController {
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameLabel.topAnchor.constraint(equalTo: profileIcon.bottomAnchor, constant: 20)
-//            nameLabel.widthAnchor.constraint(equalToConstant: 80),
-//            nameLabel.heightAnchor .constraint(equalToConstant: 80)
         ])
         
         NSLayoutConstraint.activate([
@@ -102,7 +99,7 @@ class ProfileView: UIViewController {
     }
     @objc private func changesButtonTapped() {
         let vc = ChangeProfileView()
-//        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
         print("@#@32")
     }
 
@@ -138,24 +135,23 @@ class ProfileView: UIViewController {
 //        let backImage = UIImage(named: "backButton")?.withRenderingMode(.alwaysOriginal)
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(changesButtonTapped))
 //
-////        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: 50))
-//        navigationController?.navigationBar.topItem =
-//
-//        navbar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        navbar.shadowImage = UIImage()
+        let navbar = UINavigationBar()
+
+        navbar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navbar.shadowImage = UIImage()
 //
 //        let button = UIButton()
 //        button.setImage(UIImage(named: "rainbow-circle"), for: .normal)
-////        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
 //        navbar.inputAccessoryViewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-//
-//
-//        let navItem = UINavigationItem(title: "Профиль")
-//        let changeImageButton = UIImage(named: "ChangeNavButton")?.withRenderingMode(.alwaysOriginal)
-//        let navBarButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(changesButtonTapped))
-////        navigationItem.rightBarButtonItem = navBarButton
-//        navbar.items = [navItem]
-//
-//        self.view.addSubview(navbar)
+
+        //КОРОЧЕ НАВБАР МОЗГИ ЕБЕТ, ЕСЛИ СОЗДАВАТЬ ЕГО В ТАББАРЕ ТО ОН СПОЛЗАЕТ ВНИЗ, А ЕСЛИ СОЗХДАВАТЬ ТУТ ТО КНОПКА НЕ РАБОТАЕТ, ЕБИСЬ В СЛЕДУЮЩИЙ РАЗ ХЕХЕ
+        let navItem = UINavigationItem(title: "Профиль")
+        let changeImageButton = UIImage(named: "ChangeNavButton")?.withRenderingMode(.alwaysOriginal)
+        let navBarButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(changesButtonTapped))
+        navigationItem.rightBarButtonItem = navBarButton
+        navbar.items = [navItem]
+
+        self.view.addSubview(navbar)
     }
 }
