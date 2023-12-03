@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileView: UIViewController {
     
@@ -29,7 +30,7 @@ class ProfileView: UIViewController {
     
     lazy var tableView: ProfileTableView = {
         let table = ProfileTableView(
-            frame: CGRect(x: 0, y: 300, width: view.frame.width, height: 300),
+            frame: CGRect(x: 0, y: 260, width: view.frame.width, height: 300),
             models:[
                 ProfileCellModel(
                     icon: "ProfileLiked",
@@ -44,7 +45,7 @@ class ProfileView: UIViewController {
     }()
     lazy var tableView2: ProfileTableView = {
         let table = ProfileTableView(
-            frame: CGRect(x: 0, y: 500, width: view.frame.width, height: 100),
+            frame: CGRect(x: 0, y: 420, width: view.frame.width, height: 100),
             models:[
                 ProfileCellModel(
                     icon: "ProfileExit",
@@ -54,15 +55,30 @@ class ProfileView: UIViewController {
         return table
     }()
     
+    lazy var finishRegistrationButton: UIButton = {
+       let btn = UIButton()
+        btn.setTitle("Закончить регистрацию", for: .normal)
+        btn.backgroundColor = UIColor.AccentColor
+        btn.layer.cornerRadius = 22
+        btn.addTarget(self, action: #selector(finishRegistrationButtonTapped), for: .touchUpInside)
+        
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        
+        return btn
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = bgColor
+        view.backgroundColor = .systemGray5
         setupNavBar()
+        title = "asd"
         view.addSubview(profileIcon)
+        view.addSubview(nameLabel)
         view.addSubview(tableView)
         view.addSubview(tableView2)
-        view.addSubview(nameLabel)
+        view.addSubview(finishRegistrationButton)
+        
         
         NSLayoutConstraint.activate([
             profileIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -72,33 +88,74 @@ class ProfileView: UIViewController {
         ])
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: profileIcon.bottomAnchor, constant: 30)
+            nameLabel.topAnchor.constraint(equalTo: profileIcon.bottomAnchor, constant: 20)
 //            nameLabel.widthAnchor.constraint(equalToConstant: 80),
 //            nameLabel.heightAnchor .constraint(equalToConstant: 80)
         ])
+        
+        NSLayoutConstraint.activate([
+            finishRegistrationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            finishRegistrationButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 1 - (tabBarController?.tabBar.frame.size.height ?? 80)  - 80),
+            finishRegistrationButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
+            finishRegistrationButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
     }
-    private func likedStuffButtonTapped() {
+    @objc private func changesButtonTapped() {
+        let vc = ChangeProfileView()
+//        navigationController?.pushViewController(vc, animated: true)
+        print("@#@32")
+    }
 
+    private func likedStuffButtonTapped() {
+        let vc = ProfileLikedView()
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     private func myStuffButtonTapped() {
-        
+        let vc = ProfileMyStaffView()
+        navigationController?.pushViewController(vc, animated: true)
     }
     private func exitButtonTapped() {
-        
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            let vc = AuthorizationViewController()
+            navigationController?.pushViewController(vc, animated: true)
+            vc.navigationItem.hidesBackButton = true
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    @objc private func finishRegistrationButtonTapped() {
+        //TODO
     }
     
     private func setupNavBar() {
-        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: 50))
         
-        navbar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navbar.shadowImage = UIImage()
-        self.view.addSubview(navbar)
-
-        let navItem = UINavigationItem(title: "Профиль")
-        let changeImageButton = UIImage(named: "ChangeNavButton")?.withRenderingMode(.alwaysOriginal)
-        let navBarButton = UIBarButtonItem(image: changeImageButton, style: .done, target: self, action: .none)
-        navItem.rightBarButtonItem = navBarButton
-
-        navbar.items = [navItem]
+        
+//        self.title = "Регистрация"
+//        let backImage = UIImage(named: "backButton")?.withRenderingMode(.alwaysOriginal)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(changesButtonTapped))
+//
+////        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: 50))
+//        navigationController?.navigationBar.topItem =
+//
+//        navbar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navbar.shadowImage = UIImage()
+//
+//        let button = UIButton()
+//        button.setImage(UIImage(named: "rainbow-circle"), for: .normal)
+////        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+//        navbar.inputAccessoryViewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+//
+//
+//        let navItem = UINavigationItem(title: "Профиль")
+//        let changeImageButton = UIImage(named: "ChangeNavButton")?.withRenderingMode(.alwaysOriginal)
+//        let navBarButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(changesButtonTapped))
+////        navigationItem.rightBarButtonItem = navBarButton
+//        navbar.items = [navItem]
+//
+//        self.view.addSubview(navbar)
     }
 }

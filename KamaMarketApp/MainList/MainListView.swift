@@ -59,7 +59,7 @@ class MainListView: UIViewController {
     
     @objc func firtsButtonTapped() {
         // Используя эти функции можно сразу на сервак отправить и заменить также значения по этому ключу
-        FireBaseDataManager.shared.sendUserInfoToFireBase(user: UserInfo(firstName: "Tima", phoneNumber: "9999999999"))
+        FireBaseDataManager.shared.sendUserInfoToFireBase(user: UserInfo(firstName: "asdasdasdasdasddf", phoneNumber: "9999999999"))
 
     }
     

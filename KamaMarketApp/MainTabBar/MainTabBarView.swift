@@ -7,6 +7,8 @@
 
 import UIKit
 class MainTabBarView: UITabBarController {
+    
+    lazy var navCon = UINavigationController(rootViewController: generateVC(viewConroller: ProfileView(), title: "Профиль", image: UIImage(named: "TBUser")))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,9 @@ class MainTabBarView: UITabBarController {
             generateVC(viewConroller: ChatsView(),
                        title: "Чаты",
                        image: UIImage(named: "TBChat")),
-            generateVC(viewConroller: ProfileView(),
-                       title: "Профиль",
-                       image: UIImage(named: "TBUser"))
+            navCon
+            
+            
         ]
     }
 
@@ -60,13 +62,13 @@ class MainTabBarView: UITabBarController {
         tabBar.itemWidth = width / 3
         tabBar.itemPositioning = .centered
         roundLayer.fillColor = UIColor.mainWhite.cgColor
-        tabBar.tintColor = UIColor.tabBarItemAccentColor
+        tabBar.tintColor = UIColor.AccentColor
         tabBar.unselectedItemTintColor = UIColor.tabBarItemLight
     }
 
     func setupAddButtonInTabBar() {
         let addTBButton = UIButton(frame: CGRect(x: view.frame.width / 2 - 25, y: -25, width: 50, height: 50))
-        addTBButton.backgroundColor = .tabBarItemAccentColor
+        addTBButton.backgroundColor = .AccentColor
         addTBButton.setImage(UIImage(named: "TBPlus"), for: .normal)
         addTBButton.layer.cornerRadius = addTBButton.frame.height / 2
 

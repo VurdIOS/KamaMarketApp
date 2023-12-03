@@ -49,7 +49,7 @@ class ChatsView: UIViewController {
 //            }
 //        }
 //    }
-        
+//
     func cartFetch() {
         FireBaseDataManager.shared.inCartListen { result in
             switch result {

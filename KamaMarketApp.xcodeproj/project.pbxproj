@@ -49,6 +49,9 @@
 		3AD3A8522A796A700041EB19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3A8512A796A700041EB19 /* Assets.xcassets */; };
 		3AD3A8552A796A700041EB19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3A8532A796A700041EB19 /* LaunchScreen.storyboard */; };
 		3AD3A85D2A796E5F0041EB19 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3A85C2A796E5F0041EB19 /* AuthorizationViewModel.swift */; };
+		3ADFBC1C2B1C98F700833772 /* ProfileLikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFBC1B2B1C98F700833772 /* ProfileLikedView.swift */; };
+		3ADFBC1F2B1C99A700833772 /* ProfileMyStaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFBC1E2B1C99A700833772 /* ProfileMyStaffView.swift */; };
+		3ADFBC222B1CA4F800833772 /* ChangeProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFBC212B1CA4F800833772 /* ChangeProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		3AD3A8542A796A700041EB19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AD3A8562A796A700041EB19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AD3A85C2A796E5F0041EB19 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		3ADFBC1B2B1C98F700833772 /* ProfileLikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLikedView.swift; sourceTree = "<group>"; };
+		3ADFBC1E2B1C99A700833772 /* ProfileMyStaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMyStaffView.swift; sourceTree = "<group>"; };
+		3ADFBC212B1CA4F800833772 /* ChangeProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,9 @@
 				3A23E0482AF2C35600CC706B /* ProfileView.swift */,
 				3AC35E172B1242AC00868A8C /* ProfileViewModel.swift */,
 				3A68185E2B13528F00D440BC /* ProfileTableView.swift */,
+				3ADFBC202B1CA4D500833772 /* ChangeProfile */,
+				3ADFBC1A2B1C98C700833772 /* ProfileLiked */,
+				3ADFBC1D2B1C997E00833772 /* ProfileMyStaff */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -271,6 +280,30 @@
 				3AD3A8562A796A700041EB19 /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		3ADFBC1A2B1C98C700833772 /* ProfileLiked */ = {
+			isa = PBXGroup;
+			children = (
+				3ADFBC1B2B1C98F700833772 /* ProfileLikedView.swift */,
+			);
+			path = ProfileLiked;
+			sourceTree = "<group>";
+		};
+		3ADFBC1D2B1C997E00833772 /* ProfileMyStaff */ = {
+			isa = PBXGroup;
+			children = (
+				3ADFBC1E2B1C99A700833772 /* ProfileMyStaffView.swift */,
+			);
+			path = ProfileMyStaff;
+			sourceTree = "<group>";
+		};
+		3ADFBC202B1CA4D500833772 /* ChangeProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3ADFBC212B1CA4F800833772 /* ChangeProfileView.swift */,
+			);
+			path = ChangeProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,7 +398,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A906A932ACDDC3000D42244 /* RegistrationPasswordViewController.swift in Sources */,
+				3ADFBC222B1CA4F800833772 /* ChangeProfileView.swift in Sources */,
 				3ACC5B502A8A260E00817EAC /* FallingAlert.swift in Sources */,
+				3ADFBC1C2B1C98F700833772 /* ProfileLikedView.swift in Sources */,
 				3A23E0452AF2C31700CC706B /* AddView.swift in Sources */,
 				3A23E0332AF240F500CC706B /* StorageManager.swift in Sources */,
 				3A23E0432AF2C2D100CC706B /* WalletView.swift in Sources */,
@@ -388,6 +423,7 @@
 				3A23E03A2AF2C08D00CC706B /* MainTabBarView.swift in Sources */,
 				3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */,
 				3A23E0412AF2C2B400CC706B /* MainListView.swift in Sources */,
+				3ADFBC1F2B1C99A700833772 /* ProfileMyStaffView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
