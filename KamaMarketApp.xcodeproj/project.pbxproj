@@ -21,6 +21,7 @@
 		3A23E04B2AF2CADE00CC706B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */; };
 		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
 		3A3BE7E92B068F6100C60EAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BE7E82B068F6100C60EAA /* GoogleService-Info.plist */; };
+		3A4963802B1E3F6000105ADA /* ChangeProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49637F2B1E3F6000105ADA /* ChangeProfileTableView.swift */; };
 		3A68185F2B13528F00D440BC /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A68185E2B13528F00D440BC /* ProfileTableView.swift */; };
 		3A6818612B13552D00D440BC /* ProfileCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6818602B13552D00D440BC /* ProfileCellModel.swift */; };
 		3A85E1F52B0A2782000F2CA2 /* FireBaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85E1F42B0A2782000F2CA2 /* FireBaseStorageManager.swift */; };
@@ -69,6 +70,7 @@
 		3A23E04A2AF2CADE00CC706B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
 		3A3BE7E82B068F6100C60EAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A49637F2B1E3F6000105ADA /* ChangeProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableView.swift; sourceTree = "<group>"; };
 		3A68185E2B13528F00D440BC /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
 		3A6818602B13552D00D440BC /* ProfileCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellModel.swift; sourceTree = "<group>"; };
 		3A85E1F42B0A2782000F2CA2 /* FireBaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseStorageManager.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADFBC212B1CA4F800833772 /* ChangeProfileView.swift */,
+				3A49637F2B1E3F6000105ADA /* ChangeProfileTableView.swift */,
 			);
 			path = ChangeProfile;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				3AC35E182B1242AC00868A8C /* ProfileViewModel.swift in Sources */,
 				3A23E03A2AF2C08D00CC706B /* MainTabBarView.swift in Sources */,
 				3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */,
+				3A4963802B1E3F6000105ADA /* ChangeProfileTableView.swift in Sources */,
 				3A23E0412AF2C2B400CC706B /* MainListView.swift in Sources */,
 				3ADFBC1F2B1C99A700833772 /* ProfileMyStaffView.swift in Sources */,
 			);

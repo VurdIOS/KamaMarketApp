@@ -71,7 +71,12 @@ class ProfileView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray5
-        
+        setupNavBar()
+        setupConstraints()
+
+    }
+    
+    private func setupConstraints() {
         view.addSubview(profileIcon)
         view.addSubview(nameLabel)
         view.addSubview(tableView)
@@ -99,17 +104,20 @@ class ProfileView: UIViewController {
     }
     @objc private func changesButtonTapped() {
         let vc = ChangeProfileView()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
-        print("@#@32")
+        
     }
 
     private func likedStuffButtonTapped() {
         let vc = ProfileLikedView()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
         
     }
     private func myStuffButtonTapped() {
         let vc = ProfileMyStaffView()
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     private func exitButtonTapped() {
@@ -117,6 +125,7 @@ class ProfileView: UIViewController {
         do {
           try firebaseAuth.signOut()
             let vc = AuthorizationViewController()
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
             vc.navigationItem.hidesBackButton = true
         } catch let signOutError as NSError {
@@ -129,29 +138,8 @@ class ProfileView: UIViewController {
     }
     
     private func setupNavBar() {
-        
-        
-//        self.title = "Регистрация"
-//        let backImage = UIImage(named: "backButton")?.withRenderingMode(.alwaysOriginal)
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(changesButtonTapped))
-//
-        let navbar = UINavigationBar()
-
-        navbar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navbar.shadowImage = UIImage()
-//
-//        let button = UIButton()
-//        button.setImage(UIImage(named: "rainbow-circle"), for: .normal)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-//        navbar.inputAccessoryViewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-
-        //КОРОЧЕ НАВБАР МОЗГИ ЕБЕТ, ЕСЛИ СОЗДАВАТЬ ЕГО В ТАББАРЕ ТО ОН СПОЛЗАЕТ ВНИЗ, А ЕСЛИ СОЗХДАВАТЬ ТУТ ТО КНОПКА НЕ РАБОТАЕТ, ЕБИСЬ В СЛЕДУЮЩИЙ РАЗ ХЕХЕ
-        let navItem = UINavigationItem(title: "Профиль")
-        let changeImageButton = UIImage(named: "ChangeNavButton")?.withRenderingMode(.alwaysOriginal)
-        let navBarButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(changesButtonTapped))
-        navigationItem.rightBarButtonItem = navBarButton
-        navbar.items = [navItem]
-
-        self.view.addSubview(navbar)
+        self.title = "Профиль"
+        let ChangeNavButton = UIImage(named: "ChangeNavButton")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: ChangeNavButton, style: .plain, target: self, action: #selector(changesButtonTapped))
     }
 }

@@ -186,7 +186,11 @@ class AuthorizationViewController: UIViewController {
             switch result {
             case.success(_):
                 let vc = MainTabBarView()
-                navigationController?.pushViewController(vc, animated: true)
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true)
+                
+                
+                
             case.failure(let error):
                 print(error)
                 enteredWrongPasswordOrName()
