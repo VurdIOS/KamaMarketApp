@@ -11,7 +11,7 @@
 		3A23E02E2AF23DB300CC706B /* RegistrationPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E02D2AF23DB300CC706B /* RegistrationPasswordViewModel.swift */; };
 		3A23E0302AF23E0000CC706B /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */; };
 		3A23E0332AF240F500CC706B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0322AF240F500CC706B /* StorageManager.swift */; };
-		3A23E0362AF2421C00CC706B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0352AF2421C00CC706B /* User.swift */; };
+		3A23E0362AF2421C00CC706B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0352AF2421C00CC706B /* UserInfo.swift */; };
 		3A23E03A2AF2C08D00CC706B /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0392AF2C08D00CC706B /* MainTabBarView.swift */; };
 		3A23E0412AF2C2B400CC706B /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0402AF2C2B400CC706B /* MainListView.swift */; };
 		3A23E0432AF2C2D100CC706B /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A23E0422AF2C2D100CC706B /* WalletView.swift */; };
@@ -22,6 +22,7 @@
 		3A2C85E02A9682D600AA088E /* RegistrationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */; };
 		3A3BE7E92B068F6100C60EAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BE7E82B068F6100C60EAA /* GoogleService-Info.plist */; };
 		3A4963802B1E3F6000105ADA /* ChangeProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49637F2B1E3F6000105ADA /* ChangeProfileTableView.swift */; };
+		3A5AAB152B1F66AF00C02F35 /* ChangeProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5AAB142B1F66AF00C02F35 /* ChangeProfileViewCell.swift */; };
 		3A68185F2B13528F00D440BC /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A68185E2B13528F00D440BC /* ProfileTableView.swift */; };
 		3A6818612B13552D00D440BC /* ProfileCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6818602B13552D00D440BC /* ProfileCellModel.swift */; };
 		3A85E1F52B0A2782000F2CA2 /* FireBaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A85E1F42B0A2782000F2CA2 /* FireBaseStorageManager.swift */; };
@@ -60,7 +61,7 @@
 		3A23E02D2AF23DB300CC706B /* RegistrationPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPasswordViewModel.swift; sourceTree = "<group>"; };
 		3A23E02F2AF23E0000CC706B /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		3A23E0322AF240F500CC706B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		3A23E0352AF2421C00CC706B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A23E0352AF2421C00CC706B /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		3A23E0392AF2C08D00CC706B /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		3A23E0402AF2C2B400CC706B /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
 		3A23E0422AF2C2D100CC706B /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		3A2C85DF2A9682D600AA088E /* RegistrationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewContoller.swift; sourceTree = "<group>"; };
 		3A3BE7E82B068F6100C60EAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A49637F2B1E3F6000105ADA /* ChangeProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileTableView.swift; sourceTree = "<group>"; };
+		3A5AAB142B1F66AF00C02F35 /* ChangeProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewCell.swift; sourceTree = "<group>"; };
 		3A68185E2B13528F00D440BC /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
 		3A6818602B13552D00D440BC /* ProfileCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellModel.swift; sourceTree = "<group>"; };
 		3A85E1F42B0A2782000F2CA2 /* FireBaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseStorageManager.swift; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 		3A23E0342AF2420600CC706B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A23E0352AF2421C00CC706B /* User.swift */,
+				3A23E0352AF2421C00CC706B /* UserInfo.swift */,
 				3A85E2152B0A3FC3000F2CA2 /* cart.swift */,
 				3A6818602B13552D00D440BC /* ProfileCellModel.swift */,
 			);
@@ -305,6 +307,7 @@
 			children = (
 				3ADFBC212B1CA4F800833772 /* ChangeProfileView.swift */,
 				3A49637F2B1E3F6000105ADA /* ChangeProfileTableView.swift */,
+				3A5AAB142B1F66AF00C02F35 /* ChangeProfileViewCell.swift */,
 			);
 			path = ChangeProfile;
 			sourceTree = "<group>";
@@ -418,8 +421,9 @@
 				3A23E0492AF2C35600CC706B /* ProfileView.swift in Sources */,
 				3A0733672B00FB2900DD21E6 /* FireBaseAuthManager.swift in Sources */,
 				3A23E0302AF23E0000CC706B /* RegistrationViewModel.swift in Sources */,
+				3A5AAB152B1F66AF00C02F35 /* ChangeProfileViewCell.swift in Sources */,
 				3AD3A8492A796A6F0041EB19 /* AppDelegate.swift in Sources */,
-				3A23E0362AF2421C00CC706B /* User.swift in Sources */,
+				3A23E0362AF2421C00CC706B /* UserInfo.swift in Sources */,
 				3AD3A84B2A796A6F0041EB19 /* SceneDelegate.swift in Sources */,
 				3A85E1F52B0A2782000F2CA2 /* FireBaseStorageManager.swift in Sources */,
 				3AC35E182B1242AC00868A8C /* ProfileViewModel.swift in Sources */,

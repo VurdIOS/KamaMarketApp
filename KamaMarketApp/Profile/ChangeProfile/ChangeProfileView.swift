@@ -25,10 +25,16 @@ class ChangeProfileView: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    
+    lazy var tableView2: ChangeProfileTableView = {
+        let table = ChangeProfileTableView(
+            frame: CGRect(x: 0, y: 300, width: view.frame.width, height: 400), user: UserInfo(firstName: "Kama"))
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .mainWhite
+        view.backgroundColor = .blue
         setupNavBar()
         setupConstraints()
 
@@ -44,6 +50,7 @@ class ChangeProfileView: UIViewController {
     private func setupConstraints() {
         view.addSubview(profileIcon)
         view.addSubview(nameLabel)
+        view.addSubview(tableView2)
         
         NSLayoutConstraint.activate([
             profileIcon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
