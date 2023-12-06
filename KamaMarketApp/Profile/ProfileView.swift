@@ -70,7 +70,7 @@ class ProfileView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .mainBackGroundColor
         setupNavBar()
         setupConstraints()
 

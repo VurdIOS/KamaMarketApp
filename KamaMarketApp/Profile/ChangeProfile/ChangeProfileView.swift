@@ -28,13 +28,13 @@ class ChangeProfileView: UIViewController {
     
     lazy var tableView2: ChangeProfileTableView = {
         let table = ChangeProfileTableView(
-            frame: CGRect(x: 0, y: 300, width: view.frame.width, height: 400), user: UserInfo(firstName: "Kama"))
+            frame: CGRect(x: 0, y: 230, width: view.frame.width, height: 500), user: UserInfo(firstName: "Kama", birthday: "23.12.2000"))
         return table
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .mainBackGroundColor
         setupNavBar()
         setupConstraints()
 

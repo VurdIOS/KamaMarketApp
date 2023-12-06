@@ -13,6 +13,7 @@ class ChangeProfileViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        textfield.backgroundColor = .white
         textfield.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(textfield)
         textfield.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
