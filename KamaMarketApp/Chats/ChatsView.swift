@@ -39,17 +39,7 @@ class ChatsView: UIViewController {
         
         }
     
-//    func fetchUser() {
-//        FireBaseDataManager.shared.userInfoListen { result in
-//            switch result {
-//            case .success(let user):
-//                self.cartLabels.text = user.firstName
-//            case .failure(let error):
-//                print("blyaaaa error \(error)")
-//            }
-//        }
-//    }
-//
+
     func cartFetch() {
         FireBaseDataManager.shared.inCartListen { result in
             switch result {

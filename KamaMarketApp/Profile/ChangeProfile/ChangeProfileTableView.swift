@@ -19,14 +19,8 @@ enum ProfileTextFields: String, CaseIterable {
 
 class ChangeProfileTableView: UIView {
 
-//    private let textFieldsPlaceHolders: [String] = {
-//        var str = [String]()
-//        ProfileTextFields.allCases.map{ str.append($0.rawValue) }
-//        return str
-//    }()
     let firstTable = ["Имя", "Фамиля", "Псевдоним", "День рождения"]
     let secondTable = ["Телефон", "Эл. почта"]
-    private var array3 = ProfileTextFields.allCases.map{ $0.rawValue }
     
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     
@@ -53,7 +47,6 @@ class ChangeProfileTableView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.frame = self.bounds
         //        configure()
     }
@@ -106,38 +99,6 @@ extension ChangeProfileTableView: UITableViewDataSource, UITextFieldDelegate {
         return cell
     }
     
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        switch textField.placeholder {
-//        case ProfileTextFields.name.rawValue:
-//            user?.firstName = textField.text
-//        case ProfileTextFields.surname.rawValue:
-//            user?.secondName = textField.text
-//        case ProfileTextFields.nickName.rawValue:
-//            user?.nickName = textField.text
-//        case ProfileTextFields.phoneNumber.rawValue:
-//            user?.phoneNumber = textField.text
-//        case ProfileTextFields.email.rawValue:
-//            user?.email = textField.text
-//        default:
-//            break
-//        }
-        
-        
-//        // Тут разберись как информацию забирать отсюда красиво, некрасиво и так получается
-//        let index = NSIndexPath(row: textField.tag, section: 1)
-//        let ind = NSIndexPath(row: <#T##Int#>, section: <#T##Int#>)// Через этот индекс можно номер строки забирать
-//        if let cell = tableView.cellForRow(at: index as IndexPath) as? ChangeProfileViewCell {
-//            if textField == cell.textfield {
-//                print(cell)
-//                print(index.row)
-//                print(index.section)
-//                print(textField)
-//
-//            } else if textField == cell.textfield {
-//
-//            }
-//        }
-    
     @objc func textFieldDidChange(_ textField: UITextField) {
         switch textField.placeholder {
         case ProfileTextFields.name.rawValue:
@@ -156,16 +117,8 @@ extension ChangeProfileTableView: UITableViewDataSource, UITextFieldDelegate {
             break
         }
     }
-    }
-
-
-extension ChangeProfileTableView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-////        let model = models[indexPath.row]
-////        model.handler()
-    }
 }
+
 
 
 

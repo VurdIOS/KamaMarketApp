@@ -10,6 +10,8 @@ import Firebase
 
 class ProfileView: UIViewController {
     
+    var userInfo: UserInfo?
+    
     let profileIcon: UIImageView = {
         let image = UIImageView(image: UIImage(named: "UserIcon"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -76,6 +78,8 @@ class ProfileView: UIViewController {
 
     }
     
+
+    
     private func setupConstraints() {
         view.addSubview(profileIcon)
         view.addSubview(nameLabel)
@@ -105,6 +109,7 @@ class ProfileView: UIViewController {
     @objc private func changesButtonTapped() {
         let vc = ChangeProfileView()
         vc.hidesBottomBarWhenPushed = true
+        vc.userInfo = userInfo
         navigationController?.pushViewController(vc, animated: true)
         
     }

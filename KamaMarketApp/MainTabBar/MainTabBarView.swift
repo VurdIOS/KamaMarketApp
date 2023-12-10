@@ -8,14 +8,19 @@
 import UIKit
 class MainTabBarView: UITabBarController {
     
+
+    
     lazy var navCon = UINavigationController(rootViewController: generateVC(viewConroller: ProfileView(), title: "Профиль", image: UIImage(named: "TBUser")))
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         generateTabBar()
         setTabBarAppearance()
         setupAddButtonInTabBar()
         navigationItem.hidesBackButton = true
+
+        
     }
 
     private func generateTabBar() {
@@ -42,6 +47,8 @@ class MainTabBarView: UITabBarController {
         viewConroller.tabBarItem.image = image
         return viewConroller
     }
+    
+ 
 
     private func setTabBarAppearance() {
         let positionOnX: CGFloat = 0

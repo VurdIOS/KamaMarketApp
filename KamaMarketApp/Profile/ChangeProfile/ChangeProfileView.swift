@@ -26,6 +26,8 @@ class ChangeProfileView: UIViewController {
         return btn
     }()
     
+    var userInfo: UserInfo?
+    
     lazy var tableView2: ChangeProfileTableView = {
         let table = ChangeProfileTableView(
             frame: CGRect(x: 0, y: 230, width: view.frame.width, height: 500), user: UserInfo(firstName: "Kama", birthday: "23.12.2000"))
@@ -35,11 +37,15 @@ class ChangeProfileView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .mainBackGroundColor
+
         setupNavBar()
         setupConstraints()
+        
 
         // Do any additional setup after loading the view.
     }
+
+    
     private func setupNavBar() {
         let cancelImage = UIImage(named: "CancelButton")?.withRenderingMode(.alwaysOriginal)
         let finishChanges = UIImage(named: "FinishButton")?.withRenderingMode(.alwaysOriginal)
